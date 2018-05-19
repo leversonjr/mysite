@@ -5,7 +5,10 @@ from django.shortcuts import render
 from django.http import HttpResponse
 
 def index(request):
-    return HttpResponse("Olá Mundo, Você está no mundo das enquetes.")
+
+    latest_question_list = Question.objects.order_by('-pub_date')[:5]
+    output = ', '.join([q.question_text for q in latest_question_list])
+    restun HttpResponse(output)
 
 def detail(request, question_id):
     return HttpResponse("Você está vendo a pergunta %s" % question_id)
