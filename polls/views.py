@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
+from django.template import loader
 
 from .models import Question, Choice
 
@@ -36,4 +37,4 @@ def vote(request, question_id):
        # com dados POST.Isso impede que os dados sejam postados duas vezes se
        # Usuário acessa o botão Voltar.
 
-       return HttpResponseRedirect(reverse('polls:results', args=(question.id,)))
+       return HttpResponseRedirect(reverse(request, 'polls:results', args=(question.id,)))
