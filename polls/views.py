@@ -17,7 +17,7 @@ def detail(request, question_id):
 
 def results(request, question_id):
     question = get_object_or_404(Question, pk=question_id)
-    return render(request, 'polls/results.html', {'question':question})
+    return render(request, 'polls/results.html', {'question': question})
 
 def vote(request, question_id):
    question = get_object_or_404(Question, pk=question_id)
@@ -27,7 +27,7 @@ def vote(request, question_id):
        # volta a exibir o formulario de votação
         return render(request, 'polls/detail.html',{
             'question': question,
-            'error_message': "Você não selecionou um opção"
+            'error_message': "Você não selecionou um opção",
         })
    else:
        selected_choice.votes += 1
@@ -36,4 +36,4 @@ def vote(request, question_id):
        # com dados POST.Isso impede que os dados sejam postados duas vezes se
        # Usuário acessa o botão Voltar.
 
-       return HttpResponseRedirect(reverse('polls:results', args=(question.id)))
+       return HttpResponseRedirect(reverse('polls:results', args=(question.id,)))
