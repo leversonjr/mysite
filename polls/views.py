@@ -22,16 +22,16 @@ def results(request, question_id):
 def vote(request, question_id):
    question = get_object_or_404(Question, pk=question_id)
    try:
-       selected_chocie = question.choice_set.get(pk=request.POST['choice'])
+       selected_choice = question.choice_set.get(pk=request.POST['choice'])
    except (KeyError, Choice.DoesNotExist):
        # volta a exibir o formulario de votação
         return render(request, 'polls/detail.html',{
-            'question':question,
+            'question': question,
             'error_message': "Você não selecionou um opção"
         })
    else:
-       selected_chocie.votes += 1
-       selected_chocie.save()
+       selected_choice.votes += 1
+       selected_choice.save()
        # Sempre retorna um HttpResponseRedirect após lidar com sucesso
        # com dados POST.Isso impede que os dados sejam postados duas vezes se
        # Usuário acessa o botão Voltar.
