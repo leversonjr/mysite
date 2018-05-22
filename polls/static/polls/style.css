@@ -1,13 +1,13 @@
 li a {
-    color: green;
+    color: black;
 }
 
 body {
-    background: url('images/background.jpg')no-repeat;
+    background: url('images/siteBackground.jpg')no-repeat;
 }
 
 h1 {
-    color: red;
+    color: blue;
 }
 
 #teste {
