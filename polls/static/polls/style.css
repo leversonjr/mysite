@@ -3,5 +3,13 @@ li a {
 }
 
 body {
-    background: url('images/background.jpg');
+    background: url('images/background.jpg')no-repeat;
+}
+
+h1 {
+    color: red;
+}
+
+#teste {
+    color:red
 }
